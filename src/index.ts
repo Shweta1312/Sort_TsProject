@@ -1,22 +1,42 @@
 class Sorter {
-  constructor(public collection: number[]) {}
+  constructor(public collection: number[] | string) {}
 
   sort() {
     //Object destructuring
     const { length } = this.collection;    
 
-    //Bubble sort
+    // //Bubble sort
+    // for (let i = 0; i < length; i++) {
+    //   for (let j = 0; j < length - i - 1; j++) {
+    //     if (this.collection[j] > this.collection[j + 1]) {
+    //       const leftHand = this.collection[j];
+    //       this.collection[j] = this.collection[j + 1];
+    //       this.collection[j + 1] = leftHand;
+    //     }
+    //   }
+    // }
+
+    //New changes
+    //Bad approach
+
     for (let i = 0; i < length; i++) {
       for (let j = 0; j < length - i - 1; j++) {
-        if (this.collection[j] > this.collection[j + 1]) {
-          const leftHand = this.collection[j];
-          this.collection[j] = this.collection[j + 1];
-          this.collection[j + 1] = leftHand;
+
+        //Only number array
+        if (this.collection instanceof Array){
+          if (this.collection[j] > this.collection[j + 1]) {
+            const leftHand = this.collection[j];
+            this.collection[j] = this.collection[j + 1];
+            this.collection[j + 1] = leftHand;
+          }
+        }
+        
+        //Only string
+        if (typeof this.collection === 'string'){
+          //Code for sorting string 
         }
       }
     }
-
-    
 
   }
 }

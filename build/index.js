@@ -6,13 +6,31 @@ var Sorter = /** @class */ (function () {
     Sorter.prototype.sort = function () {
         //Object destructuring
         var length = this.collection.length;
-        //Bubble sort
+        // //Bubble sort
+        // for (let i = 0; i < length; i++) {
+        //   for (let j = 0; j < length - i - 1; j++) {
+        //     if (this.collection[j] > this.collection[j + 1]) {
+        //       const leftHand = this.collection[j];
+        //       this.collection[j] = this.collection[j + 1];
+        //       this.collection[j + 1] = leftHand;
+        //     }
+        //   }
+        // }
+        //New changes
+        //Bad approach
         for (var i = 0; i < length; i++) {
             for (var j = 0; j < length - i - 1; j++) {
-                if (this.collection[j] > this.collection[j + 1]) {
-                    var leftHand = this.collection[j];
-                    this.collection[j] = this.collection[j + 1];
-                    this.collection[j + 1] = leftHand;
+                //Only number array
+                if (this.collection instanceof Array) {
+                    if (this.collection[j] > this.collection[j + 1]) {
+                        var leftHand = this.collection[j];
+                        this.collection[j] = this.collection[j + 1];
+                        this.collection[j + 1] = leftHand;
+                    }
+                }
+                //Only string
+                if (typeof this.collection === 'string') {
+                    //Code for sorting string 
                 }
             }
         }
